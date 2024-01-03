@@ -1,11 +1,12 @@
-import Login from "@repo/ui/src/netflix-components/Login";
+import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "db/utils/auth";
-import { redirect } from "next/navigation";
-export default async function page() {
+export default async function Page() {
   const session = await getServerSession(authOptions);
   if (session) {
     return redirect("/home");
+  } else {
+    return redirect("/login");
   }
-  return <Login />;
+  return <></>;
 }

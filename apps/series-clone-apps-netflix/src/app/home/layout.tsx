@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "../../../utils/auth";
+import { authOptions } from "db/utils/auth";
 import Navbar from "@repo/ui/src/netflix-components/Navbar";
 export default async function HomeLayout({
   children,

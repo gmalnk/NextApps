@@ -1,8 +1,8 @@
 import MoviePoster from "@repo/ui/src/netflix-components/MoviePoster";
 import Items from "@repo/ui/src/netflix-components/Items";
-import prisma from "../../../utils/db";
+import prisma from "db/utils/db";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../../utils/auth";
+import { authOptions } from "db/utils/auth";
 
 async function getPosterData() {
   const data = await prisma.movie.findFirst({

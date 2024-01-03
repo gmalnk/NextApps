@@ -1,7 +1,7 @@
 import Image from "next/image";
 import BackgroundImage from "../../../public/login_background.jpg";
 import NetflixLogo from "../../../public/netflix_logo.svg";
-import { authOptions } from "../../../utils/auth";
+import { authOptions } from "db/utils/auth";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 

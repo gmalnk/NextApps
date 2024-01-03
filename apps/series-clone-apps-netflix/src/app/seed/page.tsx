@@ -1,4 +1,4 @@
-import prisma from "../../../utils/db";
+import prisma from "db/utils/db";
 
 export default function SeedDatabase() {
   async function postData() {

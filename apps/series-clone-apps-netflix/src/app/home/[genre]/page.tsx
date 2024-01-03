@@ -1,5 +1,5 @@
-import { authOptions } from "../../../../utils/auth";
-import prisma from "../../../../utils/db";
+import { authOptions } from "db/utils/auth";
+import prisma from "db/utils/db";
 import { getServerSession } from "next-auth";
 import Items from "@repo/ui/src/netflix-components/Items";
 import { redirect } from "next/navigation";

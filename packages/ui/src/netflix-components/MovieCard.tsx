@@ -4,10 +4,7 @@ import { Button } from "../../components/ui/button";
 import { Heart, PlayCircle } from "lucide-react";
 import PlayVideoModel from "./PlayVideoModel";
 import { useState } from "react";
-import {
-  addTowatchlist,
-  deleteFromWatchlist,
-} from "../../../../apps/series-clone-apps-netflix/src/app/action";
+import { addTowatchlist, deleteFromWatchlist } from "db/action";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
