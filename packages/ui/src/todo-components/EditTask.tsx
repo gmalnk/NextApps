@@ -11,8 +11,8 @@ interface iprops {
   description: string | null;
   isCompleted: boolean;
   isImportant: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: Date | null;
+  updatedAt: Date | null;
   userId: string;
 }
 

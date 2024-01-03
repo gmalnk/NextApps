@@ -26,8 +26,8 @@ interface iprops {
   description: string | null;
   isCompleted: boolean;
   isImportant: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: Date | null;
+  updatedAt: Date | null;
   userId: string;
 }
 
@@ -50,7 +50,7 @@ export default async function Task({ task }: { task: iprops }) {
           <CardFooter className="p-6 pt-4">
             <div className="flex flex-col w-full ">
               <div className="line-clamp-1 text-sm font-sans">
-                {task?.createdAt.toString()}
+                {task?.updatedAt && task?.updatedAt.toString()}
               </div>
               <div className="flex justify-between items-center">
                 <form
