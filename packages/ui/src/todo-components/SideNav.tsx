@@ -1,4 +1,3 @@
-import Image from "next/image";
 import NavLinks from "./nav-links";
 import SignOutButton from "./SignOutButton";
 import { getServerSession } from "next-auth";

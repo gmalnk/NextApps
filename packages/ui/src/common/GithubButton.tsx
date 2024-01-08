@@ -3,6 +3,7 @@
 import { GithubIcon } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { signIn } from "next-auth/react";
+
 export default function GithubButton() {
   const handleOnClickGit = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
