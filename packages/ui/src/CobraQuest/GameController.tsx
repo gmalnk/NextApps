@@ -46,7 +46,9 @@ export default function GameController() {
   const [food, setFood] = useRecoilState(foodState);
 
   useEffect(() => {
-    const food = getFoodPosition(snake, gridSize);
+    const cloneSnake = snake.map((obj) => ({ ...obj }));
+    const food = getFoodPosition(cloneSnake, gridSize);
+    console.log("snake", snake);
     setFood(food);
   }, [snake.length]);
 
@@ -60,7 +62,7 @@ export default function GameController() {
         setGame(false);
         setSnake([{ x: 10, y: 10 }]);
       }
-    }, 50);
+    }, 100);
 
     return () => clearInterval(gameInterval);
   }, [direction, snake, game, food]);

@@ -14,7 +14,7 @@ export default function StartGame() {
           onClick={() => {
             setGameState(true);
           }}
-          className=" text-white bg-gray-600 px-8 py-4 font-medium text-2xl rounded-xl hover:cursor-pointer hover:scale-110 hover:bg-slate-700 active:scale-[.96]"
+          className=" text-black bg-[#04cf37] ring-2 ring-offset-1 ring-white px-8 py-4 font-medium text-2xl rounded-xl hover:cursor-pointer hover:scale-105 active:scale-[.96]"
         >
           Start Game
         </button>
