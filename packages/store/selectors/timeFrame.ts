@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { stockConfigState } from "../atoms/stockConfig";
+import { stockConfigState } from "../atoms/trend.io";
 
 export const timeFrameState = selector({
   key: "timeFrameState",

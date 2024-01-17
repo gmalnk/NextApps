@@ -5,7 +5,7 @@ import SectionHeading from "./SectionHeadding";
 import { useSectionInView } from "./Intro";
 import { motion } from "framer-motion";
 
-export const skillsData = {
+export const skillsData: { [key: string]: string } = {
   HTML: "80%",
   CSS: "65%",
   JavaScript: "85%",

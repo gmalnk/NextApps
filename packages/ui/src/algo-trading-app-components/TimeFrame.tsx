@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import { stockConfigState } from "store/atoms/stockConfig";
+import { stockConfigState } from "store/atoms/trend.io";
 import { timeFrameState } from "store/selectors/timeFrame";
 
 export default function TimeFrame({ timeFrame }: { timeFrame: string }) {

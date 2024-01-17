@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonLight = (props) => {
+const ButtonLight = (props: { text: string }) => {
   return <div className="buttonLight">{props.text}</div>;
 };
 

@@ -4,14 +4,13 @@ import clsx from "clsx";
 import { Bookmark } from "lucide-react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
 import { tokenState } from "store/selectors/token";
-import { stockConfigState } from "store/atoms/stockConfig";
+import { stockConfigState } from "store/atoms/trend.io";
 
 export default function StockList() {
   const currentToken = useRecoilValue(tokenState);
   const setStockConfig = useSetRecoilState(stockConfigState);
   const handleOnclickStockList = (e: React.MouseEvent<HTMLElement>) => {
-    if ((e.target as HTMLInputElement).hasAttribute("data-token")) {
-      console.log("setting stock config");
+    if ((e.target as HTMLElement).hasAttribute("data-token")) {
       setStockConfig((value) => ({
         ...value,
         token: (e.target as HTMLInputElement).getAttribute(

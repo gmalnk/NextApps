@@ -12,7 +12,7 @@ export default function Stocks() {
   return (
     <div className="flex h-full">
       <ResizablePanelGroup direction="horizontal">
-        <ResizablePanel defaultSize={95} className="rounded-t-md bg-white">
+        <ResizablePanel defaultSize={85} className="rounded-t-md bg-white">
           <Chart />
         </ResizablePanel>
         <ResizableHandle className="w-1" />
