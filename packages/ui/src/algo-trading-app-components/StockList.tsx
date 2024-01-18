@@ -2,21 +2,16 @@
 import { stocksDict } from "./StockBar";
 import clsx from "clsx";
 import { Bookmark } from "lucide-react";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { tokenState } from "store/selectors/token";
-import { stockConfigState } from "store/atoms/trend.io";
 
 export default function StockList() {
-  const currentToken = useRecoilValue(tokenState);
-  const setStockConfig = useSetRecoilState(stockConfigState);
+  const [token, setToken] = useRecoilState(tokenState);
   const handleOnclickStockList = (e: React.MouseEvent<HTMLElement>) => {
     if ((e.target as HTMLElement).hasAttribute("data-token")) {
-      setStockConfig((value) => ({
-        ...value,
-        token: (e.target as HTMLInputElement).getAttribute(
-          "data-token"
-        ) as string,
-      }));
+      setToken(
+        (e.target as HTMLInputElement).getAttribute("data-token") as string
+      );
     }
   };
   return (
@@ -33,8 +28,8 @@ export default function StockList() {
             className={clsx(
               "py-1 px-2 mb-1 font-light hover:cursor-pointer rounded-md flex justify-start items-center",
               {
-                "text-white bg-blue-500": key == currentToken,
-                " bg-white text-black hover:bg-gray-100": key !== currentToken,
+                "text-white bg-blue-500": key == token,
+                " bg-white text-black hover:bg-gray-100": key !== token,
               }
             )}
           >
@@ -46,7 +41,9 @@ export default function StockList() {
                 "fill-pink-500 ": parseInt(key) % 7 === 0,
               })}
             />
-            <p className="ml-2">{stocksDict[key]}</p>
+            <p className="ml-2" data-token={key}>
+              {stocksDict[key]}
+            </p>
           </div>
         );
       })}

@@ -45,22 +45,22 @@ export default async function HorizontalNavBar() {
                   <NavigationMenuTrigger className="text-[16px] font-[400]">
                     More
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div>
+                  <NavigationMenuContent className=" p-1">
+                    <div className=" py-1 px-2 hover:bg-gray-100 hover:cursor-pointer rounded-sm">
                       <NavigationMenuLink>
                         <Link href="/about" legacyBehavior passHref>
                           AboutUs
                         </Link>
                       </NavigationMenuLink>
                     </div>
-                    <div>
+                    <div className=" py-1 px-2 hover:bg-gray-100 hover:cursor-pointer rounded-sm">
                       <NavigationMenuLink>
                         <Link href="/pricing" legacyBehavior passHref>
                           Pricing
                         </Link>
                       </NavigationMenuLink>
                     </div>
-                    <div>
+                    <div className=" py-1 px-2 hover:bg-gray-100 hover:cursor-pointer rounded-sm">
                       <NavigationMenuLink>
                         <Link href="/faq" legacyBehavior passHref>
                           FAQ's

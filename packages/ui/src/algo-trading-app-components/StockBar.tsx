@@ -1,7 +1,9 @@
+"use client";
 import TimeFrames from "./TimeFrames";
 import { Separator } from "../../components/ui/separator";
-import { Fullscreen, Plus, Settings } from "lucide-react";
+import { Fullscreen, Settings } from "lucide-react";
 import StockSearch from "./StockSearch";
+import AddTradeButton from "./AddTradeButton";
 export type StocksDict = {
   [key: string]: string; // Assuming Stock is the type for your stock objects
 };
@@ -1730,15 +1732,7 @@ export default function StockBar() {
           <Fullscreen className="w-9 h-9 p-1 rounded-md stroke-1 text-neutral-900 hover:bg-gray-200 hover:cursor-pointer" />
           <Settings className="w-9 h-9 p-1 rounded-md stroke-1 text-neutral-900 hover:bg-gray-200 hover:cursor-pointer" />
         </div>
-        <div className="flex items-center justify-center relative right-0 text-white bg-blue-500 rounded-md py-1 px-2 font-semibold hover:cursor-pointer hover:bg-blue-400">
-          <Plus />
-          <button
-            className=""
-            // onClick={() => handleOnClickTrade()}
-          >
-            Add Trade
-          </button>
-        </div>
+        <AddTradeButton />
       </div>
     </div>
   );

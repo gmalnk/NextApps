@@ -71,11 +71,10 @@ export default function useStockData(
         // console.log("data", data);
 
         setStockData(data);
-        return data;
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-    const data = getData();
+    getData();
   }, [timeFrame, token]);
 }

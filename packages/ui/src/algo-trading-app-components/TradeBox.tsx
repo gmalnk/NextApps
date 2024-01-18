@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
-import TradeForm from "./TradeForm";
 
 const TradeBox = () => {
   const [position, setPosition] = useState({ x: 200, y: 100 });
   const childRef = useRef(null);
 
   // Handle mouse down event to start dragging
-  const handleMouseDown = (event) => {
+  const handleMouseDown = (
+    event: React.MouseEvent<HTMLHeadingElement, MouseEvent>
+  ) => {
     // Save the initial position of the mouse
     const initialX = event.clientX;
     const initialY = event.clientY;
@@ -15,7 +16,7 @@ const TradeBox = () => {
     const initialPosition = { x: position.x, y: position.y };
 
     // Handle mouse move event to update component position
-    const handleMouseMove = (event) => {
+    const handleMouseMove = (event: MouseEvent) => {
       // Calculate the distance moved by the mouse
       const deltaX = event.clientX - initialX;
       const deltaY = event.clientY - initialY;
@@ -39,9 +40,10 @@ const TradeBox = () => {
     // Attach mouse up event listener
     document.addEventListener("mouseup", handleMouseUp);
   };
-  const handleOnClickDeleteTradeBox = () => {
-    childRef.current.removeTradeBox(true);
-  };
+
+  // const handleOnClickDeleteTradeBox = () => {
+  //   childRef?.current?.removeTradeBox(true);
+  // };
   return (
     <div
       className="trade-box-active border border-primary rounded bg-white"
@@ -58,13 +60,14 @@ const TradeBox = () => {
             <h2 onMouseDown={handleMouseDown}>Trade Parameters</h2>
           </span>
           <span>
-            <i
-              class="fa-solid fa-xmark"
+            {/* <i
+              className="fa-solid fa-xmark"
               onClick={() => handleOnClickDeleteTradeBox()}
-            ></i>
+            ></i> */}
           </span>
         </div>
-        <TradeForm ref={childRef} />
+        <div ref={childRef} />
+        {/* <TradeForm ref={childRef} /> */}
       </div>
     </div>
   );
