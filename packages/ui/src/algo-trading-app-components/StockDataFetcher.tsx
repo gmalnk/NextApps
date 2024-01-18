@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import getStockData from "db/functions/stockDataFetcher";
+// import getStockData from "db/functions/stockDataFetcher";
 import { stockDataState } from "store/atoms/trend.io";
 import { timeFrameState } from "store/selectors/timeFrame";
 import { tokenState } from "store/selectors/token";

@@ -1,7 +1,7 @@
 // app/api/route.js
 
 import { NextResponse } from "next/server";
-import getStockData from "db/functions/stockDataFetcher";
+// import getStockData from "db/functions/stockDataFetcher";
 // Handles GET requests to /api
 export async function GET(request: Request) {
   console.log(request.body);
