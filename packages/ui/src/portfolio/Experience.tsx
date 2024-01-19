@@ -14,30 +14,44 @@ import { LuGraduationCap } from "react-icons/lu";
 import { useRecoilValue } from "recoil";
 import { themeState } from "store/atoms/portfolioAtoms";
 
+const colors = {
+  slate50: "#f8fafc",
+  slate100: "#f1f5f9",
+  slate200: "#e2e8f0",
+  slate300: "#cbd5e1",
+  slate400: "#94a3b8",
+  slate500: "#64748b",
+  slate600: "#475569",
+  slate700: "#334155",
+  slate800: "#1e293b",
+  slate900: "#0f172a",
+  slate950: "#020617",
+};
+
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Dual Degree - Mechanical Engg",
+    location: "IIT Kharagpur",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "In 2022, I successfully completed a dual degree in Mechanical Engineering, encompassing a Bachelor's (B.Tech) and an integrated Master's (M.Tech) program, with an CGPA of 8.3.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2017-2022",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Operations Research Analyst",
+    location: "Laminaar Aviation Infotech",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "As an Operations Research Analyst, I tackle real-world crew scheduling Problems by applying mathematical modeling. My responsibilities include transforming these models into executable code and incorporating client requirements into the final product.",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "2022 - present",
   },
   {
     title: "Full-Stack Developer",
-    location: "Houston, TX",
+    location: "self-projects",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+      "My stack includes React, Next.js, TypeScript, Tailwind, Prisma and Postgresql. I'm open to full-time opportunities as a Full-Stack Developer",
     icon: React.createElement(FaReact),
-    date: "2021 - present",
+    date: "2022 - present",
   },
 ] as const;
 
@@ -45,9 +59,15 @@ export default function Experience() {
   const { ref } = useSectionInView("Experience");
   const theme = useRecoilValue(themeState);
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
+    <section
+      id="experience"
+      ref={ref}
+      className="scroll-mt-28 mb-28 sm:mb-40 bg-gray-50 text-gray-950  dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90"
+    >
       <SectionHeading width={200}>My experience</SectionHeading>
-      <VerticalTimeline lineColor="">
+      <VerticalTimeline
+        lineColor={theme === "light" ? colors.slate400 : colors.slate100}
+      >
         {experiencesData.map((item, index) => {
           return (
             <React.Fragment key={index}>
@@ -55,29 +75,36 @@ export default function Experience() {
                 visible={true}
                 contentStyle={{
                   background:
-                    theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
+                    theme === "light" ? colors.slate800 : colors.slate100,
                   boxShadow: "none",
-                  border: "1px solid rgba(0, 0, 0, 0.05)",
+                  border:
+                    theme === "light"
+                      ? `1px solid ${colors.slate900}`
+                      : `1px solid ${colors.slate100}`,
                   textAlign: "left",
                   padding: "1.3rem 2rem",
                 }}
                 contentArrowStyle={{
                   borderRight:
                     theme === "light"
-                      ? "0.4rem solid #9ca3af"
-                      : "0.4rem solid rgba(255, 255, 255, 0.5)",
+                      ? `0.4rem solid ${colors.slate900}`
+                      : `0.4rem solid ${colors.slate100}`,
                 }}
                 date={item.date}
                 icon={item.icon}
                 iconStyle={{
                   background:
-                    theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
+                    theme === "light" ? colors.slate300 : colors.slate900,
                   fontSize: "1.5rem",
                 }}
               >
-                <h3 className="font-semibold capitalize">{item.title}</h3>
-                <p className="font-normal !mt-0">{item.location}</p>
-                <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
+                <h3 className="font-semibold capitalize dark:text-gray-900 text-white">
+                  {item.title}
+                </h3>
+                <p className="font-normal !mt-0 dark:text-gray-900/85 text-white/85">
+                  {item.location}
+                </p>
+                <p className="!mt-1 !font-normal dark:text-gray-900/75 text-white/75">
                   {item.description}
                 </p>
               </VerticalTimelineElement>
