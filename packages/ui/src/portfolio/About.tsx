@@ -11,7 +11,7 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="mb-28 max-w-[45rem] text-center mt-28 sm:mt-0 leading-8 sm:mb-40 scroll-mt-28"
+      className="mb-28 max-w-[50rem] text-center mt-28 sm:mt-0 leading-8 sm:mb-40 scroll-mt-28 text-lg"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
@@ -19,30 +19,32 @@ export default function About() {
     >
       <SectionHeading width={140}>About me</SectionHeading>
       <p className="mb-3">
-        After graduating with a degree in{" "}
-        <span className="font-medium">Accounting</span>, I decided to pursue my
-        passion for programming. I enrolled in a coding bootcamp and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
-        <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB
+        I am a <span className=" font-bold">Full-stack web developer</span> with
+        a deep passion for problem-solving in the dynamic world of programming.
+        My core stack includes{" "}
+        <span className=" font-bold">React, Next.js, Node.js,</span> and{" "}
+        <span className=" font-bold">Postgresql</span>, complemented by
+        proficiency in <span className=" font-bold"> TypeScript</span> and{" "}
+        <span className=" font-bold">Prisma</span>. Currently seeking a{" "}
+        <span className=" font-bold">full-time role</span>,{" "}
+        <span className=" italic">
+          I bring a project-based learning approach that not only hones
+          technical skills but also fosters a practical understanding of
+          real-world challenges.
         </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
       </p>
 
       <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        video games, watching movies, and playing with my dog. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about{" "}
-        <span className="font-medium">history and philosophy</span>. I'm also
-        learning how to play the guitar.
+        <span className=" italic">When I'm not coding</span>, I find balance in
+        playing <span className=" font-bold"> Chess</span>, indulging in
+        <span className=" font-bold"> Anime</span>, staying informed through{" "}
+        <span className=" font-bold"> News articles</span>, and immersing myself
+        in the world of <span className=" font-bold"> Books</span>.
+      </p>
+      <p className="mt-8">
+        Eager to contribute my expertise to{" "}
+        <span className=" font-bold">Innovative projects</span>, I embrace
+        continuous learning and the evolving tech landscape.
       </p>
     </motion.section>
   );

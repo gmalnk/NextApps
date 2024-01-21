@@ -32,6 +32,7 @@ export default function Contact() {
           <a
             className="social-link6 group"
             href="https://www.linkedin.com/in/goram-nayak-28a721182/"
+            target="_blank"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +46,11 @@ export default function Contact() {
               ></path>
             </svg>{" "}
           </a>
-          <a className="social-link5 group" href="https://github.com/gmalnk">
+          <a
+            className="social-link5 group"
+            href="https://github.com/gmalnk"
+            target="_blank"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentcolor"
@@ -60,6 +65,7 @@ export default function Contact() {
             </svg>
           </a>
           <a
+            target="_blank"
             className="social-link1 group"
             href="https://www.instagram.com/m.r_anilnayak/"
           >
@@ -79,6 +85,7 @@ export default function Contact() {
             </svg>
           </a>
           <a
+            target="_blank"
             className="social-link2 group"
             href="https://twitter.com/goramanilnayak"
           >
@@ -98,6 +105,7 @@ export default function Contact() {
             </svg>{" "}
           </a>
           <a
+            target="_blank"
             className="social-link3 group"
             href="https://discordapp.com/users/1080689493545320479"
           >
@@ -116,7 +124,11 @@ export default function Contact() {
               ></path>{" "}
             </svg>
           </a>
-          <a className="social-link4 group" href=" https://wa.me/7989278697">
+          <a
+            target="_blank"
+            className="social-link4 group"
+            href=" https://wa.me/7989278697"
+          >
             <svg
               viewBox="0 0 16 16"
               className="bi bi-whatsapp"
