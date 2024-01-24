@@ -31,7 +31,7 @@ export default function Contact() {
         <div className="card">
           <a
             className="social-link6 group"
-            href="https://www.linkedin.com/in/goram-nayak-28a721182/"
+            href="https://www.linkedin.com/in/goram-anil-nayak/"
             target="_blank"
           >
             <svg
