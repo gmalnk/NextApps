@@ -9,7 +9,7 @@ export type TrendlineData = {
   startdate: string;
   enddate: string;
   hl: "h" | "l";
-}[];
+};
 
 export type StockData = {
   time: string;
@@ -1120,20 +1120,9 @@ export const stockDataState: RecoilState<StockData> = atom({
   ],
 });
 
-const trendlineDataState: RecoilState<TrendlineData> = atom({
+const trendlineDataState: RecoilState<TrendlineData[]> = atom({
   key: "trendlineDataState",
-  default: [
-    {
-      id: -1,
-      token: "",
-      timeFrame: "",
-      slope: 0,
-      intercept: -1,
-      startdate: "",
-      enddate: "",
-      hl: "h",
-    },
-  ],
+  default: [] as TrendlineData[],
 });
 
 export const fullScreenState: RecoilState<boolean> = atom({
