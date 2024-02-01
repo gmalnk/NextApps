@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import RecoilContextProvider from "@repo/ui/src/common/RecoilContextProvider";
 import { NextAuthProvider } from "@repo/ui/src/common/NextAuthProvider";
+import DataInitializer from "@repo/ui/src/algo-trading-app-components/DataInitializer";
 import "db/test";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,7 +23,10 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextAuthProvider>
-          <RecoilContextProvider>{children}</RecoilContextProvider>{" "}
+          <RecoilContextProvider>
+            {children}
+            <DataInitializer />
+          </RecoilContextProvider>{" "}
         </NextAuthProvider>
       </body>
     </html>

@@ -39,7 +39,7 @@ export default function StockSerachPanel() {
       });
       //   console.log(filteredKeys.length);
       if (filteredKeys.length === 0) {
-        setSearchList(Object.keys(stocksDict).slice(0, 20));
+        setSearchList([]);
       } else {
         setSearchList(
           filteredKeys.length <= 20 ? filteredKeys : filteredKeys.splice(0, 20)

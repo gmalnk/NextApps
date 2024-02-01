@@ -23,7 +23,7 @@ export default function Chart() {
   return (
     <div
       id="chart-container"
-      className="border-gray-500 w-full rounded-r-md border-[2px] "
+      className="border-gray-500 w-full h-full rounded-t-md border-[2px]"
       ref={chartContainerRef}
     />
   );

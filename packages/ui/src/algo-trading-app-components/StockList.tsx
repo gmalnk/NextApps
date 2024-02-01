@@ -2,11 +2,24 @@
 import { stocksDict } from "./StockBar";
 import clsx from "clsx";
 import { Bookmark } from "lucide-react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { tokenState } from "store/selectors/token";
+import { useState } from "react";
+import WishlistAdder from "./WishlistAdder";
+import {
+  WishList,
+  WishListValue,
+  stockListState,
+  userWishListState,
+} from "store/atoms/trend.io";
+import { wishListColorOptions } from "./WishlistAdder";
 
 export default function StockList() {
+  const [open, setOpen] = useState(false);
   const [token, setToken] = useRecoilState(tokenState);
+  const userWishList: WishList = useRecoilValue(userWishListState);
+  const stockList: string[] = useRecoilValue(stockListState);
+
   const handleOnclickStockList = (e: React.MouseEvent<HTMLElement>) => {
     if ((e.target as HTMLElement).hasAttribute("data-token")) {
       setToken(
@@ -14,12 +27,13 @@ export default function StockList() {
       );
     }
   };
+
   return (
     <div
-      className="flex flex-col flex-auto h-full bg-gray-200"
+      className="bg-gray-200 flex flex-col"
       onClick={(e) => handleOnclickStockList(e)}
     >
-      {Object.keys(stocksDict).map((key: string) => {
+      {stockList.map((key: string) => {
         return (
           <div
             key={key}
@@ -33,14 +47,20 @@ export default function StockList() {
               }
             )}
           >
-            <Bookmark
-              className={clsx("w-5 h-5 stroke-1 text-neutral-600", {
-                " fill-yellow-300": parseInt(key) % 2 === 0,
-                " fill-red-500": parseInt(key) % 3 === 0,
-                "fill-green-500 ": parseInt(key) % 5 === 0,
-                "fill-pink-500 ": parseInt(key) % 7 === 0,
-              })}
-            />
+            <WishlistAdder
+              token={key}
+              wishListItem={
+                Object.keys(userWishList).includes(key)
+                  ? ({ ...userWishList[key] } as WishListValue)
+                  : undefined
+              }
+            >
+              <Bookmark
+                className={`w-5 h-5 stroke-1 text-neutral-600 hover:cursor-pointer ${
+                  wishListColorOptions[userWishList[key]?.category || "none"]
+                }`}
+              />
+            </WishlistAdder>
             <p className="ml-2" data-token={key}>
               {stocksDict[key]}
             </p>

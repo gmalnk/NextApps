@@ -9,6 +9,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "utils": "*",
     "store": "*",
     "db": "*",
     "@repo/ui": "*",

@@ -28,4 +28,9 @@ export const authOptions = {
       from: process.env.EMAIL_FROM,
     }),
   ],
+  callbacks: {
+    async session(session: any) {
+      return session;
+    },
+  },
 } satisfies NextAuthOptions;

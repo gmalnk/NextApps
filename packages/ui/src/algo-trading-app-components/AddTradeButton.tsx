@@ -1,16 +1,22 @@
 "use client";
-import FullScreenChart from "./FullScreenChart";
-import { Dialog, DialogTrigger } from "../../components/ui/dialog";
+import AddTradePanel from "./AddTradePanel";
+import { useRecoilState } from "recoil";
+import { tradeBoxActivationState } from "store/atoms/trend.io";
 
 export default function AddTradeButton() {
+  const [open, setOpen] = useRecoilState(tradeBoxActivationState);
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <div className="flex items-center justify-center relative right-0 text-white bg-blue-500 rounded-md py-1 px-2 font-semibold hover:cursor-pointer hover:bg-blue-400">
-          <button>Add Trade</button>
-        </div>
-      </DialogTrigger>
-      <FullScreenChart />
-    </Dialog>
+    <>
+      <div className="flex items-center justify-center relative right-0 text-white bg-blue-500 rounded-md py-1 px-2 font-semibold hover:cursor-pointer hover:bg-blue-400">
+        <button
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Add Trade
+        </button>
+      </div>
+      {open && <AddTradePanel />}
+    </>
   );
 }

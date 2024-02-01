@@ -6,11 +6,9 @@ export default function NaviagationLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="flex w-full h-screen  bg-gray-200">
+    <div className="flex w-full h-full bg-gray-200">
       <VerticalNavBar />
-      <div className="flex flex-col flex-grow basis-auto h-screen">
-        {children}
-      </div>
+      <div className="flex flex-col flex-grow ">{children}</div>
     </div>
   );
 }

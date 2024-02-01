@@ -16,11 +16,6 @@ import SignOut from "./SignOut";
 
 export default async function HorizontalNavBar() {
   const session = await getServerSession(authOptions);
-  // if (session) {
-  //   return redirect("/home");
-  // } else {
-  //   return redirect("/login");
-  // }
   return (
     <div className="navbar-container">
       <div className="navbar-autolayout">

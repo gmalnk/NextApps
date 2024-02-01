@@ -1,37 +1,73 @@
 import { atom, RecoilState } from "recoil";
-
-export type TrendlineData = [
-  [
-    {
-      time: string | number;
-      value: number;
-    },
-    {
-      time: string | number;
-      value: number;
-    },
-  ],
-  [
-    {
-      time: string | number;
-      value: number;
-    },
-    {
-      time: string | number;
-      value: number;
-    },
-  ],
-];
+import { ALL_TOKENS } from "utils/trend.io";
+export type TrendlineData = {
+  id: number;
+  token: string;
+  timeFrame: string;
+  slope: number;
+  intercept: number;
+  startdate: string;
+  enddate: string;
+  hl: "h" | "l";
+}[];
 
 export type StockData = {
-  time: string | number;
+  time: string;
   open: number;
   high: number;
   low: number;
   close: number;
 }[];
 
-export const showTrendlineState = atom({
+export type WishListValue = {
+  id: number;
+  category: string;
+};
+
+export type WishList = { [key: string]: WishListValue };
+
+export type ListOptions =
+  | "all"
+  | "nifty-50"
+  | "nifty-100"
+  | "nifty-200"
+  | "nifty-500"
+  | "nifty-1000"
+  | "red"
+  | "green"
+  | "blue"
+  | "black"
+  | "pink"
+  | "yellow";
+
+export type EntryConditions = "candle" | "candle-close";
+export type TimeFrame = "15m" | "30m" | "1h" | "2h" | "4h" | "1D" | "1W" | "1M";
+export type status = "pending" | "active" | "completed";
+export type Direction = "long" | "short";
+
+export type Trade = {
+  id: number;
+  userId: String;
+  trendlineId: number;
+  token: number;
+  tf: TimeFrame;
+  status: status;
+  direction: Direction;
+  entry_condition: EntryConditions;
+  entry: string;
+  exit: string;
+  tp: number;
+  sl: number;
+  bp: number;
+  sp: number;
+  rrr: number;
+  quantity: number;
+  cap: number;
+  current_value: number;
+  pl: number;
+};
+
+export const showTrendlineState: RecoilState<boolean> = atom({
   key: "showTrendlineState",
   default: false,
 });
@@ -47,7 +83,7 @@ export const stockConfigState: RecoilState<{
   },
 });
 
-export const stockDataState = atom({
+export const stockDataState: RecoilState<StockData> = atom({
   key: "stockDataState",
   default: [
     {
@@ -1084,12 +1120,48 @@ export const stockDataState = atom({
   ],
 });
 
-const trendlineDataState = atom({
+const trendlineDataState: RecoilState<TrendlineData> = atom({
   key: "trendlineDataState",
-  default: [],
+  default: [
+    {
+      id: -1,
+      token: "",
+      timeFrame: "",
+      slope: 0,
+      intercept: -1,
+      startdate: "",
+      enddate: "",
+      hl: "h",
+    },
+  ],
 });
 
-export const fullScreenState = atom({
+export const fullScreenState: RecoilState<boolean> = atom({
   key: "fullScreenState",
+  default: false,
+});
+
+export const listOptionState: RecoilState<string> = atom({
+  key: "listOptionState",
+  default: "all",
+});
+
+export const userWishListState: RecoilState<WishList> = atom({
+  key: "userWishListState",
+  default: {},
+});
+
+export const userIdState: RecoilState<string> = atom({
+  key: "userIdState",
+  default: "",
+});
+
+export const stockListState: RecoilState<string[]> = atom({
+  key: "stockListState",
+  default: ALL_TOKENS,
+});
+
+export const tradeBoxActivationState: RecoilState<boolean> = atom({
+  key: "tradeBoxActivationState",
   default: false,
 });
