@@ -12,7 +12,7 @@ import { timeFrameState } from "store/selectors/timeFrame";
 import { tokenState } from "store/selectors/token";
 
 export default function Chart() {
-  const trendlineData: TrendlineData = [] as unknown as TrendlineData;
+  const trendlineData = [] as unknown as TrendlineData[];
   const showTrendline = useRecoilValue(showTrendlineState);
   const timeFrame = useRecoilValue(timeFrameState);
   const token = useRecoilValue(tokenState);
