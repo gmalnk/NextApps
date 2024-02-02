@@ -1,10 +1,10 @@
 import axios from "axios";
 export const trendIOAPI = axios.create({
-  baseURL: "http://localhost:3001/api/v1/trend.io",
+  baseURL: process.env.TRENDIO_URL,
 });
 export const bhaiTalkAPI = axios.create({
-  baseURL: "https://localhost:3001/api/v1/bhaitalk",
+  baseURL: process.env.BHAITALK_URL,
 });
 export const chesskarAPI = axios.create({
-  baseURL: "https://localhost:3001/api/v1/chesskar",
+  baseURL: process.env.CHECKKAR_URL,
 });
