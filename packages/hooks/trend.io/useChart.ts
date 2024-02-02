@@ -58,7 +58,7 @@ export const timeScaleOptions = {
 export default function useChart(
   stockData: StockData,
   showTrendline: boolean,
-  trendlineData: TrendlineData
+  trendlineData: TrendlineData[]
 ) {
   const chartContainerRef = useRef<HTMLDivElement>(null);
   let chart: IChartApi;
