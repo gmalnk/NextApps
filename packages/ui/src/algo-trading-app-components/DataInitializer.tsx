@@ -31,12 +31,12 @@ export default function DataInitializer() {
 
     const setWishListForUser = async () => {
       const wishList = await getWishListData(userId);
-      console.log(wishList);
+      // console.log(wishList);
       setWishlist(wishList);
     };
 
     if (userId) {
-      console.log(userId);
+      // console.log(userId);
       userId && setUserId(userId);
       setWishListForUser();
     }

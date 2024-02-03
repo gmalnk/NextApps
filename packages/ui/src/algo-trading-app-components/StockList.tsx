@@ -50,14 +50,16 @@ export default function StockList() {
             <WishlistAdder
               token={key}
               wishListItem={
-                Object.keys(userWishList).includes(key)
+                userWishList && Object.keys(userWishList).includes(key)
                   ? ({ ...userWishList[key] } as WishListValue)
                   : undefined
               }
             >
               <Bookmark
                 className={`w-5 h-5 stroke-1 text-neutral-600 hover:cursor-pointer ${
-                  wishListColorOptions[userWishList[key]?.category || "none"]
+                  wishListColorOptions[
+                    (userWishList && userWishList[key]?.category) || "none"
+                  ]
                 }`}
               />
             </WishlistAdder>
